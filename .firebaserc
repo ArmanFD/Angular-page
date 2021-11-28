@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cms-database-8b231": {
+      "hosting": {
+        "First-app": [
+          "cms-database-8b231"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cms-database-8b231"
+  }
+}

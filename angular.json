@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "First-app:build:production",
+            "firebaseProject": "cms-database-8b231",
+            "firebaseHostingSite": "cms-database-8b231"
+          }
         }
       }
     }
