@@ -9,12 +9,16 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
 import { PagesListComponent } from './pages-list/pages-list.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { AfService } from './providers/af.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PagesListComponent
+    PagesListComponent,
+    LoginPageComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,7 @@ import { PagesListComponent } from './pages-list/pages-list.component';
     provideFirestore(() => getFirestore()),
     provideRemoteConfig(() => getRemoteConfig())
   ],
-  providers: [],
+  providers: [AfService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

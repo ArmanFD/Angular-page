@@ -1,22 +1,24 @@
-[
-    {
-       "description":"Master Angular (Angular 2+, incl. Angular 5) and build awesome, reactive web apps with the successor of Angular.js",
-       "title":"Angular - Guide",
-       "url":"angular2-guide"
-    },
-    {
-       "description":"Create Cross Platform Mobile Applications with Ionic 3, Angular 4, TypeScript and Firebase.",
-       "title":"Ionic 3 From Scratch",
-       "url":"ionic3"
-    },
-    {
-       "description":"React and Redux with this tutorial as you develop apps with React Router, Webpack, and ES6",
-       "title":"React With Redux",
-       "url":"react-with-redux"
-    },
-    {
-       "description":"Vue JS is an awesome JavaScript Framework for building Frontend Applications! VueJS mixes the Best of Angular + React!",
-       "title":"Vue.js 2",
-       "url":"vuejs2-guide"
-    }
- ]
+{
+   "pages": {
+      "angular-guide": {
+         "description": "Master Angular (Angular 2+, incl. Angular 5) and build awesome, reactive web apps with the successor of Angular.js",
+         "title": "Angular - Guide",
+         "url": "angular2-guide"
+      },
+      "ionic-3-from-scratch": {
+         "description": "Create Cross Platform Mobile Applications with Ionic 3, Angular 4, TypeScript and Firebase.",
+         "title": "Ionic 3 From Scratch",
+         "url": "ionic3"
+      },
+      "react-with-redux": {
+         "description": "React and Redux with this tutorial as you develop apps with React Router, Webpack, and ES6",
+         "title": "React With Redux",
+         "url": "react-with-redux"
+      },
+      "vuejs-2": {
+         "description": "Vue JS is an awesome JavaScript Framework for building Frontend Applications! VueJS mixes the Best of Angular + React!",
+         "title": "Vue.js 2",
+         "url": "vuejs2-guide"
+      }
+   }
+}

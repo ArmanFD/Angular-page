@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Database,DatabaseReference,query,list,ref} from '@angular/fire/database'
+import { Database,DatabaseReference,query,listVal,ref} from '@angular/fire/database';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -8,20 +8,25 @@ import { Observable } from 'rxjs';
   styleUrls: ['./pages-list.component.scss']
 })
 export class PagesListComponent implements OnInit {
-  pagesObservable!: Observable<any[]>;
-  dbref: DatabaseReference = ref(this.db, 'cms-database-8b231-default-rtdb')
+  pages!: Observable<any[] | null >;
+  dbRef: DatabaseReference = ref(this.db, 'pages');
 
-  constructor(private db: Database) { }
+  title = 'First-app'
 
-  ngOnInit(): void {
-    this.getPages();
-  }
-  getPages() {
-    const q = query(this.dbref);
-    const data = list(q);
-    data.subscribe( (data) => {
-      return (data)
+  constructor(private db: Database) {}
+
+  ngOnInit() {
+    this.pages = this.getPages();
+    this.pages.subscribe(data => {
+      console.log(data)
     })
   }
+
+  getPages(): Observable<any[] | null > {
+    const pagesQuery = query(this.dbRef);
+
+    return listVal(pagesQuery);
+  }
+  ;
 
 }
