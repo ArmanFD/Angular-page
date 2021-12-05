@@ -2,15 +2,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideRemoteConfig, getRemoteConfig } from '@angular/fire/remote-config';
 import { PagesListComponent } from './pages-list/pages-list.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AfService } from './providers/af.service';
+import { AppNavbarComponent } from './app-navbar/app-navbar.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { AdminGuard } from './guards/admin.guard';
+import { SubscriberGuard } from './guards/subscriber.guard';
 
 
 @NgModule({
@@ -18,7 +23,10 @@ import { AfService } from './providers/af.service';
     AppComponent,
     PagesListComponent,
     LoginPageComponent,
-  
+    AppNavbarComponent,
+    HomePageComponent,
+    AdminPageComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -27,9 +35,10 @@ import { AfService } from './providers/af.service';
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    provideRemoteConfig(() => getRemoteConfig())
+    provideRemoteConfig(() => getRemoteConfig()),
+
   ],
-  providers: [AfService],
+  providers: [AfService,AdminGuard,SubscriberGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
