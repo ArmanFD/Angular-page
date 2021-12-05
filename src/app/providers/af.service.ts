@@ -2,19 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { User } from '../providers/user';
-import {
-  Auth,
-  authState,
-  signInWithPopup,
-  GoogleAuthProvider,
-} from '@angular/fire/auth';
-import {
-  Firestore,
-  DocumentReference,
-  doc,
-  setDoc,
-  docData,
-} from '@angular/fire/firestore';
+import { Auth, authState, signInWithPopup, GoogleAuthProvider, } from '@angular/fire/auth';
+import { Firestore, DocumentReference, doc, setDoc, docData, } from '@angular/fire/firestore';
 
 
 @Injectable({
@@ -22,7 +11,7 @@ import {
 })
 export class AfService {
   user$: Observable<any>;
-  constructor(public afAuth: Auth,private fs:Firestore) {
+  constructor(public afAuth: Auth, private fs: Firestore) {
     this.user$ = authState(this.afAuth).pipe(
       switchMap((user) => {
         if (user) {
@@ -47,7 +36,7 @@ export class AfService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       roles: {
-        admin: true, 
+        admin: true,
         subscriber: true,
       },
     };
