@@ -40,6 +40,7 @@ import { MaterialModule } from './material.module';
     provideFirestore(() => getFirestore()),
     provideRemoteConfig(() => getRemoteConfig()),
     MaterialModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [AfService,AdminGuard,SubscriberGuard],

@@ -25,7 +25,6 @@ export class AfService {
   async loginWithgoogle() {
     const provider = new GoogleAuthProvider();
     const credentials = await signInWithPopup(this.afAuth, provider)
-    console.log(credentials)
     this.updateUser(credentials.user)
   }
   updateUser(user: User) {
