@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree,LoadChildren} from '@angular/router';
 import { Observable } from 'rxjs';
 import { AfService } from '../providers/af.service';
 import { map, tap, take } from 'rxjs/operators';
