@@ -17,6 +17,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { SubscriberGuard } from './guards/subscriber.guard';
 import { MaterialModule } from './material.module';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
+import { MenusService } from './service/menus/menus.service';
 
 
 
@@ -41,7 +42,7 @@ import { AppNavbarComponent } from './app-navbar/app-navbar.component';
     BrowserAnimationsModule,
 
   ],
-  providers: [AfService,AdminGuard,SubscriberGuard],
+  providers: [AfService,AdminGuard,SubscriberGuard,MenusService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
