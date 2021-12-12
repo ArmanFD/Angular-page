@@ -13,6 +13,7 @@ export interface Menu {
 })
 
 export class MenusService {
+  [x: string]: any;
 
   collectionref = collection(this.afs, 'menus')
 

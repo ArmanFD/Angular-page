@@ -37,13 +37,25 @@
             <mat-cell *matCellDef="let element"> {{element.url}} </mat-cell>
         </ng-container>
 
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button color="primary" (click)="openEditDialog(element.id, element.title, element.url)">
+                 <mat-icon aria-label="edit">mode_edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="openDialog(element.id)">
+                <mat-icon aria-label="delete">delete</mat-icon>
+              </button>
+            </mat-cell> 
+        </ng-container>
+
+
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons 
-                 aria-label="Select page of periodic elements">
-  </mat-paginator>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
 
 </div>
