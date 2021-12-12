@@ -18,6 +18,7 @@ import { SubscriberGuard } from './guards/subscriber.guard';
 import { MaterialModule } from './material.module';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { MenusService } from './service/menus/menus.service';
+import { PostsService } from './service/posts/posts.service';
 
 
 
@@ -42,7 +43,7 @@ import { MenusService } from './service/menus/menus.service';
     BrowserAnimationsModule,
 
   ],
-  providers: [AfService,AdminGuard,SubscriberGuard,MenusService],
+  providers: [AfService,AdminGuard,SubscriberGuard,MenusService,PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

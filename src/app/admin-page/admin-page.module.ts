@@ -7,9 +7,10 @@ import { AdminPageComponent } from './admin-page.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { MenusComponent } from './menus/menus.component';
 import { PostsComponent } from './posts/posts.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 import { EditMenuComponent } from './menus/edit-menu/edit-menu.component';
+import { EditPostsComponent } from './posts/edit-posts/edit-posts.component';
 
 
 
@@ -20,6 +21,7 @@ import { EditMenuComponent } from './menus/edit-menu/edit-menu.component';
     MaterialModule,
     AdminRoutingModule,
     FormsModule,
+    ReactiveFormsModule
      
   ],
   declarations: [
@@ -30,8 +32,9 @@ import { EditMenuComponent } from './menus/edit-menu/edit-menu.component';
     PostsComponent,
     ConfirmationDialogComponent,
     EditMenuComponent,
+    EditPostsComponent,
   ],
   
-  entryComponents: [ ConfirmationDialogComponent,EditMenuComponent,]
+  entryComponents: [ ConfirmationDialogComponent, EditMenuComponent, EditPostsComponent]
 })
 export class AdminPageModule { }
