@@ -34,7 +34,5 @@ import { EditPostsComponent } from './posts/edit-posts/edit-posts.component';
     EditMenuComponent,
     EditPostsComponent,
   ],
-  
-  entryComponents: [ ConfirmationDialogComponent, EditMenuComponent, EditPostsComponent]
 })
 export class AdminPageModule { }

@@ -9,27 +9,19 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideRemoteConfig, getRemoteConfig } from '@angular/fire/remote-config';
-import { PagesListComponent } from './pages-list/pages-list.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AfService } from './providers/af.service';
-import { HomePageComponent } from './home-page/home-page.component';
 import { AdminGuard } from './guards/admin.guard';
 import { SubscriberGuard } from './guards/subscriber.guard';
 import { MaterialModule } from './material.module';
-import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { MenusService } from './service/menus/menus.service';
 import { PostsService } from './service/posts/posts.service';
-
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PagesListComponent,
     LoginPageComponent,
-    HomePageComponent,
-    AppNavbarComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -43,7 +35,7 @@ import { PostsService } from './service/posts/posts.service';
     BrowserAnimationsModule,
 
   ],
-  providers: [AfService,AdminGuard,SubscriberGuard,MenusService,PostsService],
-  bootstrap: [AppComponent]
+  providers: [AfService, AdminGuard, SubscriberGuard, MenusService, PostsService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
