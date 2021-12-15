@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Menu, MenusService } from 'src/app/service/menus/menus.service';
+import { PostsService } from 'src/app/service/posts/posts.service';
+
 
 @Component({
   selector: 'app-pages',
@@ -8,13 +11,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PagesComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {
-    this.route.params.subscribe( params => {
-      console.log(params)
+  menu!: any;
+  postsList: any;
+
+  constructor(private route: ActivatedRoute, private menus: MenusService, private posts: PostsService) {
+    this.route.params.subscribe(params => {
+      console.log(params['url'])
+      this.menus.getConditionalMenus("url", "==", params['url']).subscribe(menus => {
+        if (menus.length > 0) {
+          this.menu = menus[0]
+        }
+        this.posts.getConditionalPosts("menu_id", "==", this.menu.id).subscribe((posts: any) => {
+          this.postsList = posts
+          console.log(this.postsList)
+        })
+      })
     })
-   }
+  }
 
   ngOnInit(): void {
   }
 
-}
+} 
