@@ -13,7 +13,7 @@
         <mat-form-field>
             <textarea matInput placeholder="Content" formControlName="content"></textarea>
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="addPost()"  [disabled]="!postForm.valid">Add</button>
+        <button mat-raised-button color="primary" (click)="addPost()" [disabled]="!postForm.valid">Add</button>
     </form>
 </div>
 
@@ -48,7 +48,8 @@
 
         <ng-container matColumnDef="content">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Content</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.content}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{(element.content.length>30)?(element.content | slice:0:30)+ '...':element.content}}
+            </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="actions">
