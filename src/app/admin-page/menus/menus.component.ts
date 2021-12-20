@@ -33,10 +33,10 @@ export class MenusComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  constructor(private menus: MenusService, public dialog: MatDialog) { }
+  constructor(private srvMenus: MenusService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.menus.getMenus().subscribe((data: any) => {
+    this.srvMenus.getMenus().subscribe((data: any) => {
       this.dataSource.data = data;
     })
   }
@@ -45,13 +45,13 @@ export class MenusComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
   addMenu() {
-    this.menus.addMenu(this.menuDetails);
+    this.srvMenus.addMenu(this.menuDetails);
   }
   editMenu(menuId: string, menu: Menu) {
-    this.menus.updateMenu(menuId, menu);
+    this.srvMenus.updateMenu(menuId, menu);
   }
   deleteMenu(menuId: string) {
-    this.menus.deleteMenu(menuId);
+    this.srvMenus.deleteMenu(menuId);
   }
 
   openDialog(menuId: any): void {
@@ -64,23 +64,20 @@ export class MenusComponent implements OnInit {
         console.log('The dialog was closed' + menuId);
         this.deleteMenu(menuId)
       }
-
     });
   }
 
   openEditDialog(menuId: string, title: string, url: string): void {
     const dialogRef = this.dialog.open(EditMenuComponent, {
       width: '250px',
-      data: {title,url},
+      data: { title, url },
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log('The Edit dialog was closed');
         this.editMenu(menuId, result)
-    }
-    
+      }
     });
   }
-
 }

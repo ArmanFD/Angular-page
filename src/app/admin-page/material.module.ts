@@ -20,9 +20,7 @@ import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
-  declarations: [
-
-  ],
+  declarations: [],
   imports: [
     MatButtonModule,
     MatToolbarModule,

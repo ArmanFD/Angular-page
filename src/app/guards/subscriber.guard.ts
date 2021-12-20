@@ -15,11 +15,6 @@ export class SubscriberGuard implements CanActivate {
     return this.af.user$.pipe(
       take(1),
       map(user => user && user.roles.subscriber ? true : false),
-      tap(isAdmin => {
-        if (!isAdmin) {
-          console.log("Access denied - Subscribers only allowed")
-        }
-      })
     )
   }
 }

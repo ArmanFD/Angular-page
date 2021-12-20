@@ -4,7 +4,7 @@
 
         <mat-nav-list>
             <mat-list-item *ngFor="let link of links">
-                <a matLine routerLink="/admin/{{link.link}}">{{ link.name }}</a>
+                <a matLine routerLink="/admin/{{ link.link }}">{{ link.name }}</a>
 
             </mat-list-item>
         </mat-nav-list>
@@ -17,8 +17,6 @@
                 menu
             </span>
         </button>
-
         <router-outlet></router-outlet>
     </div>
-
 </mat-drawer-container>

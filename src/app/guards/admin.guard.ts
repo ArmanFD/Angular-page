@@ -15,11 +15,6 @@ export class AdminGuard implements CanActivate {
     return this.af.user$.pipe(
       take(1),
       map(user => user && user.roles.admin ? true : false),
-      tap(isAdmin => {
-        if (!isAdmin) {
-          console.log("Access denied - Admins only allowed")
-        }
-      })
     )
   }
 };

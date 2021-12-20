@@ -16,10 +16,7 @@ export class AdminPageComponent implements OnInit {
       link: "posts",
     },
   ];
-
   constructor() { }
-
   ngOnInit(): void {
   }
-
 }

@@ -9,9 +9,7 @@ import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
-  declarations: [
-
-  ],
+  declarations: [],
   imports: [
     MatButtonModule,
     MatToolbarModule,
@@ -28,7 +26,7 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     CommonModule,
     MatCardModule,
-
   ]
 })
+
 export class MaterialModule { }

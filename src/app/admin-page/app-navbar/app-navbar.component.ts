@@ -10,9 +10,9 @@ import { User } from 'src/app/providers/user';
 export class AppNavbarComponent implements OnInit {
 
 user!: User
-  constructor(public AfService: AfService) { }
+  constructor(public afService: AfService) { }
 
   ngOnInit() {
-    this.AfService.user$.subscribe(user => this.user = user)
+    this.afService.user$.subscribe(user => this.user = user)
   }
 }

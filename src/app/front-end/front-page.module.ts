@@ -9,7 +9,6 @@ import { MaterialModule } from '../material.module';
 import { PagesComponent } from './pages/pages.component';
 
 
-
 @NgModule({
 
   imports: [
@@ -18,6 +17,5 @@ import { PagesComponent } from './pages/pages.component';
     MaterialModule,
   ],
   declarations: [PagesListComponent, HomePageComponent, FrontEndComponent, AppNavbarComponent, PagesComponent],
-  
 })
 export class FrontPageModule { }

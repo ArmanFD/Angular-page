@@ -19,7 +19,6 @@ export class AfService {
         } else return of(null);
       })
     );
-
   }
 
   async loginWithgoogle() {
@@ -27,6 +26,7 @@ export class AfService {
     const credentials = await signInWithPopup(this.afAuth, provider)
     this.updateUser(credentials.user)
   }
+
   updateUser(user: User) {
     const userRef: DocumentReference = doc(this.fs, `users/${user.uid}`);
     const userData: User = {
@@ -41,6 +41,7 @@ export class AfService {
     };
     setDoc(userRef, userData, { merge: true });
   }
+
   logout() {
     this.afAuth.signOut();
   }

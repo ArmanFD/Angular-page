@@ -1,37 +1,30 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <button mat-button routerLink="/">JS Tech Blog</button>
-
+        <button mat-button routerLink="/home">JS Tech Blog</button>
         <span class="example-spacer"></span>
-
         <div *ngFor="let menus of menusList">
-            <button mat-button routerLink="pages/{{menus.url}}">{{menus.title}}</button>
+            <button mat-button routerLink="pages/{{ menus.url }}">{{ menus.title }}</button>
         </div>
         <button mat-button routerLink="article">Pro Blog</button>
-    
         <div *ngIf="! user">
-            <button mat-button (click)="AfService.loginWithgoogle()">Login</button>
+            <button mat-button (click)="afService.loginWithgoogle()">Login</button>
         </div>
-
         <div *ngIf="user">
             <button mat-button [matMenuTriggerFor]="menu">
-                <span>Hello {{user.displayName}}</span>
-                <img class="profileImg" src="{{user.photoURL}}">
+                <span>Hello {{ user.displayName }}</span>
+                <img class="profileImg" src="{{ user.photoURL }}">
             </button>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item disabled>
-                     <mat-icon>account_circle</mat-icon>
+                    <mat-icon>account_circle</mat-icon>
                     <span>Account Settings</span>
                 </button>
-               
-                <button mat-menu-item (click)="AfService.logout()">
+
+                <button mat-menu-item (click)="afService.logout()">
                     <mat-icon>exit_to_app </mat-icon>
                     <span>Log out</span>
                 </button>
             </mat-menu>
-
         </div>
     </mat-toolbar-row>
 </mat-toolbar>
-
-

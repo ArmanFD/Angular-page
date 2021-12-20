@@ -12,10 +12,10 @@ export class AppNavbarComponent implements OnInit {
 
   user!: User
   menusList: any;
-  constructor(public AfService: AfService, private menus: MenusService) { }
+  constructor(public afService: AfService, private menus: MenusService) { }
 
   ngOnInit() {
-    this.AfService.user$.subscribe(user => this.user = user);
+    this.afService.user$.subscribe(user => this.user = user);
     this.menus.getMenus().subscribe(menus => {
       this.menusList = menus;
     })

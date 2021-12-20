@@ -41,30 +41,35 @@ export class PostsComponent implements OnInit {
 
   constructor(private posts: PostsService, private menus: MenusService, public dialog: MatDialog, private fb: FormBuilder) {
     this.postForm = this.fb.group({
-      title:["",Validators.required],
-      menu_id: ["",Validators.required],
-      content: ["",Validators.required],
+      title: ["", Validators.required],
+      menu_id: ["", Validators.required],
+      content: ["", Validators.required],
     })
-   }
+  }
 
   ngOnInit() {
     this.posts.getPosts().subscribe((data: any) => {
       this.dataSource.data = data;
     })
+
     this.menus.getMenus().subscribe((data: any) => {
       this.menusList = data;
     })
   }
+
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
+
   addPost() {
     this.posts.addPost(this.postForm.value);
   }
+
   editPost(postId: string, post: Post) {
     this.posts.updatePost(postId, post);
   }
+
   deletePost(postId: string) {
     this.posts.deletePost(postId);
   }
@@ -79,24 +84,21 @@ export class PostsComponent implements OnInit {
         console.log('The dialog was closed' + postId);
         this.deletePost(postId)
       }
-
     });
   }
 
   openEditDialog(postId: string, title: string, menu_id: string, content: string): void {
     const dialogRef = this.dialog.open(EditPostsComponent, {
       width: '250px',
-      data: {title, menu_id, content, "menus": this.menusList },
+      data: { title, menu_id, content, "menus": this.menusList },
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log('The Edit dialog was closed');
         this.editPost(postId, result)
-    }
-    
+      }
     });
   }
-
 }
 

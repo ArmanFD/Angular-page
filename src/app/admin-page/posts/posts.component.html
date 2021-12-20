@@ -27,28 +27,27 @@
     </div>
 
     <mat-table #table [dataSource]="dataSource" matSort>
-        <!-- Position Column -->
+
         <ng-container matColumnDef="id">
             <mat-header-cell *matHeaderCellDef mat-sort-header> ID</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
         </ng-container>
 
-        <!-- Name Column -->
+
         <ng-container matColumnDef="title">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{ element.title }} </mat-cell>
         </ng-container>
-
-        <!-- Weight Column -->
 
         <ng-container matColumnDef="menu_id">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Menu Id </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.menu_id}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{ element.menu_id }} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="content">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Content</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{(element.content.length>30)?(element.content | slice:0:30)+ '...':element.content}}
+            <mat-cell *matCellDef="let element"> {{ (element.content.length>30)?(element.content | slice:0:30)+
+                '...':element.content }}
             </mat-cell>
         </ng-container>
 
@@ -64,8 +63,6 @@
                 </button>
             </mat-cell>
         </ng-container>
-
-
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

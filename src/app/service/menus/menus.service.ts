@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore,doc,collection, collectionSnapshots, addDoc, deleteDoc, updateDoc, query, where, WhereFilterOp, DocumentReference } from '@angular/fire/firestore';
+import { Firestore, doc, collection, collectionSnapshots, addDoc, deleteDoc, updateDoc, query, where, WhereFilterOp, DocumentReference } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 
 export interface Menu {
@@ -13,13 +13,13 @@ export interface Menu {
 })
 
 export class MenusService {
-  
+
   collectionref = collection(this.afs, 'menus')
 
   constructor(private afs: Firestore) { }
 
   getMenus() {
-    
+
     return collectionSnapshots(this.collectionref).pipe(
       map(menus => {
         return menus.map(menu => {
@@ -59,9 +59,8 @@ export class MenusService {
   }
 
   updateMenu(menuId: string, menu: Menu) {
-    const menu_doc_ref:DocumentReference<any> = doc(this.afs, `menus/${menuId}`)
+    const menu_doc_ref: DocumentReference<any> = doc(this.afs, `menus/${menuId}`)
     updateDoc<Menu>(menu_doc_ref, menu);
   }
-
 }
 

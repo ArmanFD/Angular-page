@@ -10,13 +10,13 @@ import { AfService } from '../providers/af.service';
 })
 export class LoginPageComponent implements OnInit {
   user!: User
-  constructor(public AfService: AfService) { }
+  constructor(public afService: AfService) { }
 
   ngOnInit() {
-    this.AfService.user$.subscribe(user => this.user = user)
-  }
-  login() {
-    this.AfService.loginWithgoogle()
+    this.afService.user$.subscribe(user => this.user = user)
   }
 
+  login() {
+    this.afService.loginWithgoogle()
+  }
 }
